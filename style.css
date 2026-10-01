@@ -1,0 +1,507 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+
+:root {
+    --primary-yellow: #FFB800;
+    --secondary-green: #0A5C36;
+    --accent-red: #E62E2D;
+    --text-dark: #333333;
+    --light-bg: #FFFDF7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--light-bg);
+    color: var(--text-dark);
+    overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 5%;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 140px; /* Increased massively to combat internal padding */
+    width: auto;
+    mix-blend-mode: multiply;
+    transition: transform 0.3s ease;
+    margin: -40px 0; /* Pulls the image into the navbar, hiding the blank space */
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 1.05rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-yellow);
+}
+
+.nav-links .btn {
+    background-color: var(--accent-red);
+    color: white;
+    padding: 0.7rem 1.8rem;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(230, 46, 45, 0.3);
+    transition: all 0.3s ease;
+}
+
+.nav-links .btn:hover {
+    background-color: #c92222;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(230, 46, 45, 0.4);
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5rem 5%;
+    min-height: 90vh;
+    background: radial-gradient(circle at right, #FFF2CC 0%, #FFFDF7 100%);
+    position: relative;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 650px;
+    z-index: 2;
+}
+
+.badge {
+    display: inline-block;
+    background-color: var(--accent-red);
+    color: #fff;
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.hero-content h1 {
+    font-size: 5rem;
+    line-height: 1.05;
+    color: var(--accent-red);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+.hero-content .highlight {
+    color: var(--secondary-green);
+    font-size: 5.5rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-yellow);
+    color: var(--text-dark);
+    padding: 1.2rem 3rem;
+    font-size: 1.2rem;
+    font-weight: 800;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0 10px 25px rgba(255, 184, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px rgba(255, 184, 0, 0.6);
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image img {
+    max-width: 90%;
+    height: auto;
+    
+    /* This magically removes the white background of the JPEG image and blends it into the page */
+    mix-blend-mode: multiply; 
+    
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Experience Section */
+.experience-section {
+    padding: 7rem 5%;
+    text-align: center;
+    background-color: #fff;
+}
+
+.experience-section h2 {
+    font-size: 3.5rem;
+    color: var(--secondary-green);
+    margin-bottom: 1rem;
+}
+
+.experience-section p.subtitle {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 4rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background-color: var(--light-bg);
+    padding: 2.5rem 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 5px solid var(--primary-yellow);
+    text-align: left;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.feature-card .icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.feature-card h3 {
+    font-size: 1.8rem;
+    color: var(--secondary-green);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.feature-card p {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+/* Video Section (Cinematic) */
+.video-section {
+    padding: 6rem 5%;
+    text-align: center;
+    
+    /* Made it a dark cinematic background to feel more immersive */
+    background-color: var(--secondary-green); 
+    color: #fff;
+    
+    /* Makes the section perfectly snap to desktop screen height */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-section h2 {
+    font-size: 3.5rem;
+    color: var(--primary-yellow);
+    margin-bottom: 1rem;
+}
+
+.video-section p {
+    font-size: 1.2rem;
+    color: #e0e0e0;
+    margin-bottom: 3rem;
+    max-width: 600px;
+}
+
+.video-section video {
+    /* Guarantees the video never exceeds 75% of the screen height */
+    max-height: 75vh; 
+    width: auto;
+    max-width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+    outline: none;
+    border: 4px solid var(--primary-yellow);
+    background-color: #000;
+}
+
+/* Nutrition Section */
+.nutrition-section {
+    display: flex;
+    align-items: center;
+    padding: 7rem 5%;
+    background-color: #FAFAFA;
+    gap: 5rem;
+}
+
+.nutrition-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.nutrition-image img {
+    max-width: 100%;
+    
+    /* Blends the white background label into the gray background */
+    mix-blend-mode: multiply;
+}
+
+.nutrition-content {
+    flex: 1;
+}
+
+.nutrition-content h2 {
+    font-size: 3.5rem;
+    color: var(--secondary-green);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.nutrition-content p {
+    font-size: 1.25rem;
+    color: #555;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+}
+
+.nutrition-content ul {
+    list-style: none;
+}
+
+.nutrition-content li {
+    font-size: 1.3rem;
+    margin-bottom: 1.2rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Buy Section */
+.buy-section {
+    padding: 7rem 5%;
+    text-align: center;
+    background-color: #fff;
+}
+
+.buy-section h2 {
+    font-size: 3.5rem;
+    color: var(--secondary-green);
+    margin-bottom: 1rem;
+}
+
+.buy-section p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 4rem;
+}
+
+.platforms {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.platform-btn {
+    display: inline-block;
+    padding: 1.2rem 3rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: white;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.platform-btn:hover {
+    transform: translateY(-5px);
+}
+
+.platform-btn.amazon {
+    background-color: #FF9900;
+    color: #000;
+    box-shadow: 0 10px 25px rgba(255, 153, 0, 0.3);
+}
+.platform-btn.amazon:hover {
+    box-shadow: 0 15px 35px rgba(255, 153, 0, 0.4);
+}
+
+.platform-btn.flipkart {
+    background-color: #2874F0;
+    box-shadow: 0 10px 25px rgba(40, 116, 240, 0.3);
+}
+.platform-btn.flipkart:hover {
+    box-shadow: 0 15px 35px rgba(40, 116, 240, 0.4);
+}
+
+.platform-btn.meesho {
+    background-color: #F43397;
+    box-shadow: 0 10px 25px rgba(244, 51, 151, 0.3);
+}
+.platform-btn.meesho:hover {
+    box-shadow: 0 15px 35px rgba(244, 51, 151, 0.4);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 3rem 5%;
+    background-color: var(--secondary-green);
+    color: #fff;
+    font-size: 1.1rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 5%;
+    }
+    
+    .logo img {
+        height: 130px;
+        margin: -35px 0;
+    }
+    
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .hero, .nutrition-section {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 3rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 3.2rem;
+    }
+    
+    .hero-content .highlight {
+        font-size: 3.5rem;
+    }
+    
+    .hero-image {
+        margin-top: 3rem;
+    }
+    
+    .nutrition-image {
+        margin-bottom: 2rem;
+    }
+    
+    .video-section h2, .experience-section h2, .nutrition-content h2, .buy-section h2 {
+        font-size: 2.5rem;
+    }
+    
+    .nutrition-content li {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-content .highlight {
+        font-size: 2.8rem;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .nav-links {
+        gap: 0.8rem;
+    }
+    
+    .nav-links a {
+        font-size: 0.9rem;
+    }
+    
+    .nav-links .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .video-section video {
+        max-height: 50vh;
+    }
+    
+    .platforms {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0 1rem;
+        gap: 1rem;
+    }
+    
+    .platform-btn {
+        text-align: center;
+        padding: 1rem;
+    }
+}
